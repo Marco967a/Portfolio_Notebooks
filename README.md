@@ -1,5 +1,7 @@
 # Data Science & Analytics Portfolio
 
+[![CI - Validate Notebooks & Data](https://github.com/Marco967a/Portfolio_Notebooks/actions/workflows/validate-notebooks.yml/badge.svg)](https://github.com/Marco967a/Portfolio_Notebooks/actions/workflows/validate-notebooks.yml)
+
 Benvenuto nel mio repository portfolio! Qui raccolgo una selezione di progetti e notebook incentrati su **Data Cleaning**, **Analisi Esplorativa dei Dati (EDA)**, **Feature Engineering & Normalizzazione** e **Modellazione Predittiva**.
 
 ---
@@ -36,7 +38,7 @@ Ciao, sono **Marco**! Sono un appassionato di dati e aspirante Data Analyst / Da
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Marco967a/Portfolio_Notebooks/blob/main/OCEAN.ipynb)
 
 * **Obiettivo**: Analizzare le proprietà chimico-fisiche e biogeochimiche delle masse d'acqua marine e costruire modelli di regressione lineare (semplice e multipla) in grado di predire con precisione la temperatura superficiale e profonda dell'acqua (`T_degC`), quantificando il contributo relativo di ciascuna variabile oceanografica.
-* **Dataset**: [CalCOFI Bottle Database](https://newdata.calcofi.com/index.php/database/calcofi-database/bottle-field-descriptions) (California Cooperative Oceanic Fisheries Investigations), uno dei set di dati oceanografici più completi al mondo. È stato estratto un sottoinsieme rappresentativo di 45.000 campioni, pulito e ridotto a 11.100 record completi su 9 variabili fondamentali: variabili fisiche (`Depthm`, `Salnty`, `STheta`), nutrienti e parametri biologici (`O2ml_L`, `PO4uM`, `SiO3uM`, `NO3uM`, `ChlorA`) e variabile target (`T_degC`).
+* **Dataset**: [CalCOFI Bottle Database](https://calcofi.org/data/oceanographic-data/bottle-database/) (California Cooperative Oceanic Fisheries Investigations), uno dei set di dati oceanografici più completi al mondo. È stato estratto un sottoinsieme rappresentativo di 45.000 campioni, pulito e ridotto a 11.100 record completi su 9 variabili fondamentali: variabili fisiche (`Depthm`, `Salnty`, `STheta`), nutrienti e parametri biologici (`O2ml_L`, `PO4uM`, `SiO3uM`, `NO3uM`, `ChlorA`) e variabile target (`T_degC`).
 * **Conclusioni Chiave**:
   * Il modello di **regressione lineare multipla** dimostra un'elevata accuratezza e capacità di generalizzazione, raggiungendo $R^2 \approx 0.96$ (sia su training che su test set) con un errore medio quadratico $\text{RMSE} \approx 0.18$, confermando l'assenza di overfitting.
   * Nella comparazione delle regressioni semplici, la **densità potenziale (`STheta`)** risulta il singolo predittore più potente da solo ($R^2 = 0.94$), seguita dai nutrienti **fosfati (`PO4uM`, $R^2 = 0.76$)** e **nitrati (`NO3uM`, $R^2 = 0.75$)**, a testimonianza dei forti legami termodinamici e dei fenomeni di *upwelling*.
