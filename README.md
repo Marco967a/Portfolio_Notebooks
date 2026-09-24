@@ -29,6 +29,7 @@ Ciao, sono **Marco**! Sono un appassionato di dati e aspirante Data Analyst / Da
 | **CalCOFI Oceanographic Analysis** | Scienze Ambientali / Oceanografia | EDA, Data Cleaning, Normalizzazione, Regressione Lineare Semplice e Multipla, Feature Importance | $R^2 \approx 0.96$, $\text{RMSE} \approx 0.18$ | [OCEAN.ipynb](./OCEAN.ipynb) |
 | **Adult Census Income** | Socio-Economico / Demografico | Pulizia avanzata (imputazione distributiva di `?`), EDA Bivariata/Multivariata, Analisi di Disparità di Genere | Identificazione dei driver socio-economici di reddito | [ADULT.ipynb](./ADULT.ipynb) |
 | **Iris Benchmark Scaling** | Botanica / Machine Learning Foundations | Data Cleaning, EDA comparativa morfologica, Benchmark di Normalizzazione (MinMax vs Standard vs Robust) | Dimostrazione dell'invarianza di skewness nei diversi scaler | [IRIS.ipynb](./IRIS.ipynb) |
+| **Etna: segnali sismici pre-eruttivi** | Vulcanologia / Geofisica | Test di permutazione, epoch sovrapposte, b-value (Gutenberg-Richter), controllo dei confondenti, correzione per selezione | Nessun precursore robusto; ipotesi su profondità da confermare ($p pprox 0.02$, ottimistico) | [ETNA.ipynb](./ETNA.ipynb) |
 
 ---
 
@@ -73,6 +74,20 @@ Ciao, sono **Marco**! Sono un appassionato di dati e aspirante Data Analyst / Da
     * `MinMaxScaler`: Comprime i valori nell'intervallo compatto $[0, 1]$, ideale per algoritmi basati su gradienti o immagini, ma sensibile agli outlier.
     * `StandardScaler`: Centra i dati sulla media ($\mu = 0$) con varianza unitaria ($\sigma = 1$), presupposto per algoritmi che assumono gaussianità o regressioni regolarizzate.
     * `RobustScaler`: Ricalibra i dati basandosi su mediana e scarto interquartile (IQR), offrendo la massima robustezza in presenza di valori anomali senza alterare la struttura informativa.
+
+---
+
+### 4. [Etna: segnali sismici pre-eruttivi](./ETNA.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Marco967a/Portfolio_Notebooks/blob/main/ETNA.ipynb)
+
+* **Obiettivo**: Verificare se nei giorni prima dell'inizio di una fase eruttiva dell'Etna i terremoti mostrano caratteristiche diverse dal normale, usando metriche che non dipendono dal numero di eventi registrati.
+* **Dataset**: Catalogo sismico EtnaRCSC (INGV-OE, 7.844 eventi 2020-feb 2026, CC BY 4.0) ed elenco di eventi eruttivi compilato da bollettini INGV (14 fasi indipendenti 2021-2025 dopo raggruppamento).
+* **Metodo**: Test di permutazione contro date di controllo in quiete, con detrending dei livelli, controllo di coerenza sulle singole fasi e attenzione al bias di selezione delle metriche.
+* **Conclusioni Chiave**:
+  * **Profondità mediana a 7 giorni**: 4,3 km prima delle fasi contro 6,5 km dei controlli ($p pprox 0.02$, coerente in 10 fasi su 13). Ipotesi interessante ma ottimistica: la metrica era la migliore tra 54 test esplorativi, nessuno significativo dopo correzione.
+  * **b-value a 90 giorni**: nessun segnale ($p pprox 0.40$).
+  * **Conteggio degli eventi**: sembra un forte precursore ($p < 0.001$) ma scompare togliendo livello e scala ($p pprox 0.12$): artefatto di periodo e della composizione dei controlli.
+  * Con 14 fasi indipendenti la potenza statistica è bassa: un risultato nullo non esclude l'esistenza di precursori.
 
 ---
 
